@@ -1,4 +1,5 @@
 #include <cassert>
+#include <cstring>
 #include "moreArrayFuncs.h"
 
 // a: an array of ints.  size is how many ints in array
@@ -10,7 +11,18 @@
 
 int indexOfMax(int *a, int size) {
   assert(size >= 1);
-  return -42; // STUB !!! Remove and replace with correct code
+
+  int index = 0;
+  int max = *a;
+
+  for (int x = 0; x < size; x ++){
+    if (*(a+x) > max){
+      max = *(a+x);
+      index = x;
+    }
+  }
+
+  return index; // STUB !!! Remove and replace with correct code
 }
 
 // a: an array of ints.  size is how many ints in array
@@ -21,7 +33,18 @@ int indexOfMax(int *a, int size) {
 // You may assume size >= 1
 int indexOfMin(int *a, int size) {
   assert(size >= 1);
-  return -42; // STUB !!! Remove and replace with correct code
+
+  int index = 0;
+  int max = *a;
+
+  for (int x = 0; x < size; x ++){
+    if (*(a+x) < max){
+      max = *(a+x);
+      index = x;
+    }
+  }
+
+  return index; // STUB !!! Remove and replace with correct code
 }
 
 // a: an array of ints.  size is how many ints in array
@@ -30,7 +53,18 @@ int indexOfMin(int *a, int size) {
 // You may assume size >= 1
 int largestValue(int *a, int size) {
   assert(size >= 1);
-  return -42; // STUB !!! Remove and replace with correct code
+
+  int index = 0;
+  int max = *a;
+
+  for (int x = 0; x < size; x ++){
+    if (*(a+x) > max){
+      max = *(a+x);
+      index = x;
+    }
+  }
+
+  return max; // STUB !!! Remove and replace with correct code
 }
 
 // a: an array of ints.  size is how many ints in array
@@ -40,7 +74,18 @@ int largestValue(int *a, int size) {
 
 int smallestValue(int *a, int size) {
   assert(size >= 1);
-  return -42; // STUB !!! Remove and replace with correct code
+
+  int index = 0;
+  int max = *a;
+
+  for (int x = 0; x < size; x ++){
+    if (*(a+x) < max){
+      max = *(a+x);
+      index = x;
+    }
+  }
+
+  return max; // STUB !!! Remove and replace with correct code
 }
 
 
@@ -49,7 +94,13 @@ int smallestValue(int *a, int size) {
 // size may be 0 in this case, or non-zero.
 
 int sum(int *a, int size) {
-  return -42; // STUB
+  assert(size >= 1);
+  int toReturn=0;
+  for (int x = 0; x < size; x ++){
+    toReturn += *(a+x);
+  }
+
+  return toReturn; // STUB !!! Remove and replace with correct code
 }
 
 
@@ -60,7 +111,14 @@ int sum(int *a, int size) {
 // copy n elements from src to dest.
 
 void copyElements(int *dest, int *src, int n) {
-  // STUB: Fix this
+  assert(n >= 1);
+
+  for (int x = 0; x < n; x ++){
+    *(dest+x) = *(src+x);
+
+  }
+
+ // STUB !!! Remove and replace with correct code
 }
 
 // dest is an array of int that has capacity at LEAST of size n
@@ -71,7 +129,15 @@ void copyElements(int *dest, int *src, int n) {
 // return the number of elements that were copied
 
 int copyOddOnly(int *dest, int *src, int n) {
-  return -42; // stub @@@ FIX THIS 
+  assert(n >= 1);
+  int index =0;
+  for (int x = 0; x < n; x ++){
+    if( *(src+x) %2 !=0){
+      *(dest+index) = *(src+x);
+      index++;
+    }
+  }
+  return index;
 }
 
 // a, b and product are all arrays of size n (or greater)
@@ -86,13 +152,21 @@ int copyOddOnly(int *dest, int *src, int n) {
 // product will be {3,10,21,36}.
 
 void multiplyPairwise(int *a, int *b, int *product, int n) {
-  // STUB; fix this
+
+for (int x = 0; x < n ; x++){
+  *(product+x) = *(a+x) *( *(b+x));
+}
+
 }
 
 // len is the number of elements the array you create should contain
 // you should return a pointer to the new integer array of size len
 // with all of the elements in it set to 0
 int* createArray(int len) {
-  //STUB; fix this
-  return 0;
+
+  int * arr = new int[len];
+
+  arr[0]=0;
+  
+  return arr;
 }
